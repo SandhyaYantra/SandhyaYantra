@@ -379,6 +379,9 @@ button {
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  /* FIX: claim remaining space so tabs don't get clipped */
+  flex: 1;
+  min-width: 0;
 }
 
 .glass-nav-center::-webkit-scrollbar {
@@ -1195,7 +1198,8 @@ button {
 /* Mobile Devices (Smartphones < 640px) */
 @media (max-width: 640px) {
   .glass-navbar {
-    padding: 0 12px;
+    padding: 0 10px;
+    gap: 8px;
   }
 
   .glass-nav-tab .tab-label {
@@ -1203,12 +1207,27 @@ button {
   }
 
   .glass-nav-tab {
-    padding: 0 12px;
+    padding: 0 10px;
     height: 36px;
+    min-width: 36px;
+  }
+
+  .glass-nav-center {
+    gap: 2px;
+    justify-content: flex-start; /* left-align so scroll works naturally */
   }
 
   .glass-brand-title {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 110px;
+  }
+
+  .glass-nav-left {
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .capability-item {
@@ -1217,14 +1236,20 @@ button {
   }
 }
 
-/* Small Smartphone Viewports (< 380px) */
-@media (max-width: 380px) {
+/* Small Smartphone Viewports (< 400px) */
+@media (max-width: 400px) {
   .glass-brand-title {
     display: none;
   }
 
   .glass-navbar {
-    justify-content: space-between;
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .glass-nav-tab {
+    padding: 0 8px;
+    min-width: 32px;
   }
 
   .glass-nav-center {
