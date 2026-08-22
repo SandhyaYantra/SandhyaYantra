@@ -5,9 +5,58 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initLanguage();
   initContactForm();
   initSpotlightGlowEffect();
 });
+
+/* ==========================================================================\n+   2. LANGUAGE SWITCHER (INDONESIAN / ENGLISH WITH LOCALSTORAGE)\n+   ========================================================================== */
+function initLanguage() {
+  const languageToggleBtn = document.getElementById('languageToggleBtn');
+  const languageLabel = document.getElementById('languageLabel');
+  const translations = {
+    en: {
+      Home: 'Home', Personal: 'Personal', Labs: 'Labs', Story: 'Story', Contact: 'Contact',
+      Portfolio: 'Portfolio', 'Future Projects': 'Future Projects',
+      'Personal Profile': 'Personal Profile', 'SandhyaYantra Labs': 'SandhyaYantra Labs',
+      'My Story': 'My Story', 'Project Portfolio': 'Project Portfolio',
+      'Connect With Me': 'Connect With Me', 'Ganti bahasa': 'Change language'
+    },
+    id: {
+      Home: 'Beranda', Personal: 'Personal', Labs: 'Lab', Story: 'Cerita', Contact: 'Kontak',
+      Portfolio: 'Portofolio', 'Future Projects': 'Proyek Mendatang',
+      'Personal Profile': 'Profil Personal', 'SandhyaYantra Labs': 'SandhyaYantra Labs',
+      'My Story': 'Cerita Saya', 'Project Portfolio': 'Portofolio Proyek',
+      'Connect With Me': 'Hubungi Saya', 'Ganti bahasa': 'Ubah bahasa'
+    }
+  };
+
+  const savedLanguage = localStorage.getItem('sandhya_language') || 'en';
+
+  function applyLanguage(language) {
+    document.documentElement.lang = language === 'id' ? 'id' : 'en';
+    document.querySelectorAll('.tab-label, .glass-page-title, .glass-language-btn').forEach((element) => {
+      const originalText = element.dataset.originalText || element.textContent.trim();
+      element.dataset.originalText = originalText;
+      if (element.classList.contains('glass-language-btn')) {
+        element.setAttribute('aria-label', language === 'id' ? 'Ubah bahasa' : 'Change language');
+        const label = element.querySelector('#languageLabel');
+        if (label) label.textContent = language === 'id' ? 'ID' : 'EN';
+      } else if (translations[language][originalText]) {
+        element.textContent = translations[language][originalText];
+      }
+    });
+    localStorage.setItem('sandhya_language', language);
+  }
+
+  applyLanguage(savedLanguage);
+  if (languageToggleBtn) {
+    languageToggleBtn.addEventListener('click', () => {
+      const currentLanguage = document.documentElement.lang === 'id' ? 'id' : 'en';
+      applyLanguage(currentLanguage === 'id' ? 'en' : 'id');
+    });
+  }
+}
 
 /* ==========================================================================
    1. DYNAMIC MOUSE & TOUCH SPOTLIGHT GLOW EFFECT (APPLE VISIONOS STYLE)
