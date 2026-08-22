@@ -78,7 +78,7 @@ function initLanguage() {
     'Ready to Build Something Clean and Fast?': 'Siap Membangun Sesuatu yang Bersih dan Cepat?', "Let's collaborate on web projects, discuss open-source tools, or build custom interfaces together.": 'Mari berkolaborasi dalam proyek web, membahas alat open source, atau membangun antarmuka kustom bersama.',
     'Start Collaboration': 'Mulai Kolaborasi', 'Learn More': 'Pelajari Lebih Lanjut'
   };
-  const savedLanguage = localStorage.getItem('sandhya_language') || document.documentElement.lang || 'id';
+  const savedLanguage = localStorage.getItem('sandhya_language_v2') || 'en';
   const originalTextNodes = new WeakMap();
   const originalAttributes = new WeakMap();
   const originalDocumentTitle = document.title;
@@ -113,7 +113,7 @@ function initLanguage() {
     const label = document.getElementById('languageLabel');
     if (label) label.textContent = language === 'id' ? 'ID' : 'EN';
     if (languageToggleBtn) languageToggleBtn.setAttribute('aria-label', language === 'id' ? 'Ubah bahasa' : 'Change language');
-    localStorage.setItem('sandhya_language', language);
+    localStorage.setItem('sandhya_language_v2', language);
   }
 
   applyLanguage(savedLanguage);
