@@ -792,6 +792,7 @@ button {
 .lab-card-img {
   width: 100%;
   height: clamp(160px, 25vw, 200px);
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: var(--radius-md);
   margin-bottom: 16px;
@@ -1281,6 +1282,37 @@ button {
 
 /* Mobile Devices (Smartphones < 640px) */
 @media (max-width: 640px) {
+  :root {
+    --glass-blur: blur(10px) saturate(125%);
+  }
+
+  .ambient-blob {
+    animation: none;
+    filter: blur(45px);
+  }
+
+  .glass-panel,
+  .glass-card-wrapper,
+  .glass-box-nested,
+  .lab-card,
+  .capability-item {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 240px;
+  }
+
+  .glass-panel:hover,
+  .glass-box-nested:hover,
+  .lab-card:hover,
+  .capability-item:hover,
+  .glass-card-wrapper:hover {
+    transform: none;
+  }
+
+  .lab-card:hover .lab-card-img,
+  .glass-card-wrapper:hover .glass-cover-image {
+    transform: none;
+  }
+
   .glass-navbar {
     padding: 0 10px;
     gap: 8px;
