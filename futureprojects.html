@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Projects | Sandhya Yantra</title>
+  <meta name="description" content="Explore upcoming web development initiatives, software prototypes, and the technical roadmap of Sandhya Yantra.">
+  
+  <!-- Font Awesome 6 CDN for crisp icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Apple Liquid Glass Theme CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Fluid Light Blobs -->
+  <div class="glass-ambient-bg" aria-hidden="true">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
+  </div>
+
+  <!-- ==========================================================================
+       APPLE LIQUID GLASS TOP NAVIGATION BAR
+       ========================================================================== -->
+  <header class="glass-navbar">
+    <div class="glass-nav-left">
+      <a href="index.html" class="glass-brand-title">Sandhya Yantra</a>
+    </div>
+
+    <nav class="glass-nav-center" aria-label="Main Navigation">
+      <a href="portfolio.html" class="glass-nav-tab" title="Portfolio">
+        <i class="fa-solid fa-briefcase"></i>
+        <span class="tab-label">Portfolio</span>
+      </a>
+      <a href="futureprojects.html" class="glass-nav-tab active" title="Future Projects">
+        <i class="fa-solid fa-rocket"></i>
+        <span class="tab-label">Future Projects</span>
+      </a>
+      <a href="personal.html" class="glass-nav-tab" title="Personal Profile">
+        <i class="fa-solid fa-user"></i>
+        <span class="tab-label">Personal</span>
+      </a>
+      <a href="sandhyayantralabs.html" class="glass-nav-tab" title="SandhyaYantra Labs">
+        <i class="fa-solid fa-flask"></i>
+        <span class="tab-label">Labs</span>
+      </a>
+      <a href="story.html" class="glass-nav-tab" title="My Story">
+        <i class="fa-solid fa-book-open"></i>
+        <span class="tab-label">Story</span>
+      </a>
+      <a href="contact.html" class="glass-nav-tab" title="Contact">
+        <i class="fa-solid fa-envelope"></i>
+        <span class="tab-label">Contact</span>
+      </a>
+    </nav>
+
+    <div class="glass-nav-right">
+      <button class="glass-theme-btn" id="themeToggleBtn" title="Ganti Tema (Dark / Light Mode)" aria-label="Ganti Tema">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main class="glass-page-container">
+    
+    <!-- Section Header -->
+    <section class="glass-header-section">
+      <span class="glass-badge"><i class="fa-solid fa-rocket"></i> Vision & Roadmap</span>
+      <h1 class="glass-page-title">Future Projects</h1>
+      <p class="glass-page-subtitle">
+        Upcoming experimental prototypes, developer tools, and architectural explorations currently in the pipeline at SandhyaYantra Labs.
+      </p>
+    </section>
+
+    <!-- 2-Column Grid: Pipeline Items -->
+    <div class="glass-grid-2">
+      
+      <!-- Future Item 1: ChefCode Theme -->
+      <article class="glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px;">
+          <h2 style="font-size: 1.3rem; font-weight: 700; font-family: 'Outfit', sans-serif;">
+            ChefCode Editor Theme
+          </h2>
+          <span class="glass-badge" style="color: var(--apple-blue); margin-bottom: 0; font-size: 0.72rem; padding: 3px 10px;">
+            In Planning
+          </span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--apple-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+          A custom syntax theme and editor configuration inspired by the warmth of kitchen hearths and high-contrast ergonomics to minimize eye strain during late-night coding sessions.
+        </p>
+        <div class="skill-tags-group">
+          <span class="skill-tag"><i class="fa-solid fa-palette"></i> Syntax Highlighting</span>
+          <span class="skill-tag"><i class="fa-solid fa-eye"></i> Low Eye Strain</span>
+          <span class="skill-tag"><i class="fa-solid fa-code"></i> VS Code & Neovim</span>
+        </div>
+      </article>
+
+      <!-- Future Item 2: BrigadeFlow Workspace -->
+      <article class="glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px;">
+          <h2 style="font-size: 1.3rem; font-weight: 700; font-family: 'Outfit', sans-serif;">
+            BrigadeFlow Workspace
+          </h2>
+          <span class="glass-badge" style="color: var(--apple-purple); margin-bottom: 0; font-size: 0.72rem; padding: 3px 10px;">
+            Prototyping
+          </span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--apple-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+          A lightweight web canvas for pair programming and task synchronization that translates the rigorous coordination of a kitchen brigade into developer task management.
+        </p>
+        <div class="skill-tags-group">
+          <span class="skill-tag"><i class="fa-solid fa-arrows-split-up-and-left"></i> Realtime Sync</span>
+          <span class="skill-tag"><i class="fa-solid fa-users"></i> Pair Programming</span>
+          <span class="skill-tag"><i class="fa-solid fa-network-wired"></i> WebSockets</span>
+        </div>
+      </article>
+
+      <!-- Future Item 3: WokStation Developer Dotfiles -->
+      <article class="glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px;">
+          <h2 style="font-size: 1.3rem; font-weight: 700; font-family: 'Outfit', sans-serif;">
+            WokStation Laptop Config
+          </h2>
+          <span class="glass-badge" style="color: var(--apple-green); margin-bottom: 0; font-size: 0.72rem; padding: 3px 10px;">
+            In Progress
+          </span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--apple-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+          Open-source development environment dotfiles, terminal optimizations, and productivity shortcuts prepared for the developer laptop workstation goal.
+        </p>
+        <div class="skill-tags-group">
+          <span class="skill-tag"><i class="fa-solid fa-terminal"></i> Terminal Workflow</span>
+          <span class="skill-tag"><i class="fa-solid fa-sliders"></i> Dotfiles</span>
+          <span class="skill-tag"><i class="fa-brands fa-linux"></i> Linux/Unix Tools</span>
+        </div>
+      </article>
+
+      <!-- Future Item 4: Zero-Bloat CSS Framework -->
+      <article class="glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px;">
+          <h2 style="font-size: 1.3rem; font-weight: 700; font-family: 'Outfit', sans-serif;">
+            Zero-Bloat Micro CSS
+          </h2>
+          <span class="glass-badge" style="color: var(--apple-orange); margin-bottom: 0; font-size: 0.72rem; padding: 3px 10px;">
+            Concept Stage
+          </span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--apple-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+          An ultra-lightweight (under 5KB) CSS utility library providing modern Glassmorphism components, responsive tokens, and dark mode without requiring build toolchains.
+        </p>
+        <div class="skill-tags-group">
+          <span class="skill-tag"><i class="fa-solid fa-feather"></i> Under 5KB</span>
+          <span class="skill-tag"><i class="fa-solid fa-cube"></i> Pure Vanilla CSS</span>
+          <span class="skill-tag"><i class="fa-solid fa-bolt"></i> Zero Build Step</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Milestone Roadmap Section -->
+    <section class="glass-panel">
+      <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 16px; font-family: 'Outfit', sans-serif;">
+        2026 - 2027 Strategic Milestones
+      </h2>
+
+      <div class="timeline-track">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">Q3 2026 • Immediate Goal</div>
+          <h3 class="timeline-title">Complete Foundational Web Suite & First Open Source Release</h3>
+          <p class="timeline-desc">
+            Publish open-source repositories on GitHub under SandhyaYantra Labs, complete developer laptop funding, and build community connections.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">Q4 2026 • Growth</div>
+          <h3 class="timeline-title">Collaborative Web Applications & Junior Developer Transition</h3>
+          <p class="timeline-desc">
+            Contribute to beginner-friendly open-source software, launch interactive frontend experiments, and start full-time developer engagements.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">2027 • Scaling</div>
+          <h3 class="timeline-title">Full-Stack Expansion & Advanced UI Tooling</h3>
+          <p class="timeline-desc">
+            Deepen knowledge into backend integration, web performance optimization, and expanding SandhyaYantra Labs into a respected digital laboratory.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions Group -->
+    <div style="display: flex; justify-content: center; gap: 16px; margin-top: 10px; flex-wrap: wrap;">
+      <a href="portfolio.html" class="glass-btn glass-btn-primary">
+        <i class="fa-solid fa-briefcase"></i> Explore Active Portfolio
+      </a>
+      <a href="sandhyayantralabs.html" class="glass-btn glass-btn-secondary">
+        <i class="fa-solid fa-flask"></i> Visit SandhyaYantra Labs
+      </a>
+      <a href="contact.html" class="glass-btn glass-btn-secondary">
+        <i class="fa-solid fa-envelope"></i> Propose a Collaboration
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Custom JavaScript (Theme Switcher & Interactions) -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

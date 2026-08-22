@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandhya Yantra | From Wok Stations to Workstations</title>
+  <meta name="description" content="Official landing page of Sandhya Yantra - Culinary professional transitioning into tech & web development.">
+  
+  <!-- Font Awesome 6 CDN for crisp icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: SF Pro / Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Apple Liquid Glass Theme CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Fluid Light Blobs (Provides dynamic refraction behind the liquid glass) -->
+  <div class="glass-ambient-bg" aria-hidden="true">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
+  </div>
+
+  <!-- ==========================================================================
+       APPLE LIQUID GLASS TOP NAVIGATION BAR
+       ========================================================================== -->
+  <header class="glass-navbar">
+    <!-- Left: Brand Title -->
+    <div class="glass-nav-left">
+      <a href="index.html" class="glass-brand-title">Sandhya Yantra</a>
+    </div>
+
+    <!-- Center: Navigation Tabs -->
+    <nav class="glass-nav-center" aria-label="Main Navigation">
+      <a href="portfolio.html" class="glass-nav-tab" title="Portfolio">
+        <i class="fa-solid fa-briefcase"></i>
+        <span class="tab-label">Portfolio</span>
+      </a>
+      <a href="futureprojects.html" class="glass-nav-tab" title="Future Projects">
+        <i class="fa-solid fa-rocket"></i>
+        <span class="tab-label">Future Projects</span>
+      </a>
+      <a href="personal.html" class="glass-nav-tab" title="Personal Profile">
+        <i class="fa-solid fa-user"></i>
+        <span class="tab-label">Personal</span>
+      </a>
+      <a href="sandhyayantralabs.html" class="glass-nav-tab" title="SandhyaYantra Labs">
+        <i class="fa-solid fa-flask"></i>
+        <span class="tab-label">Labs</span>
+      </a>
+      <a href="story.html" class="glass-nav-tab" title="My Story">
+        <i class="fa-solid fa-book-open"></i>
+        <span class="tab-label">Story</span>
+      </a>
+      <a href="contact.html" class="glass-nav-tab" title="Contact">
+        <i class="fa-solid fa-envelope"></i>
+        <span class="tab-label">Contact</span>
+      </a>
+    </nav>
+
+    <!-- Right: Theme Switcher -->
+    <div class="glass-nav-right">
+      <button class="glass-theme-btn" id="themeToggleBtn" title="Ganti Tema (Dark / Light Mode)" aria-label="Ganti Tema">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       APPLE LIQUID GLASS PROFILE HERO CARD
+       ========================================================================== -->
+  <main class="glass-profile-main-container">
+    <div class="glass-card-wrapper">
+      
+      <!-- Foto Sampul (Cover Photo) -->
+      <div class="glass-cover-container">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop&q=80" 
+             alt="Foto Sampul Sandhya Yantra - Culinary & Tech" 
+             class="glass-cover-image">
+        <div class="glass-cover-gradient-overlay"></div>
+      </div>
+
+      <!-- Profile Content Area -->
+      <div class="glass-profile-content-body">
+        
+        <!-- Foto Profil (Profile Picture with Glass Ring) -->
+        <div class="glass-avatar-wrapper">
+          <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&auto=format&fit=crop&q=80" 
+               alt="Foto Profil Sandhya Yantra" 
+               class="glass-avatar-image">
+          <div class="glass-online-indicator" title="Active Now"></div>
+        </div>
+
+        <!-- H1 Nama -->
+        <div class="glass-name-heading-group">
+          <h1 class="glass-profile-name">
+            Sandhya Yantra
+            <span class="glass-verified-check" title="Terverifikasi">
+              <i class="fa-solid fa-circle-check"></i>
+            </span>
+          </h1>
+        </div>
+
+        <!-- Tagline (Tanpa Emoji) -->
+        <div class="glass-tagline-container">
+          <p class="glass-tagline-main">From wok stations to workstations!</p>
+          <p class="glass-tagline-sub">(Dari stasiun kompor wajan ke meja kerja komputer!)</p>
+        </div>
+
+        <!-- 2 Tombol Aksi Liquid Glass (Personal & SandhyaYantra Labs) -->
+        <div class="glass-action-buttons-group">
+          <!-- Tombol 1: Menuju Personal -->
+          <a href="personal.html" class="glass-cta-btn glass-cta-primary">
+            <i class="fa-solid fa-user"></i>
+            <span>Personal Profile</span>
+          </a>
+
+          <!-- Tombol 2: Menuju Bisnis (SandhyaYantra Labs) -->
+          <a href="sandhyayantralabs.html" class="glass-cta-btn glass-cta-secondary">
+            <i class="fa-solid fa-flask"></i>
+            <span>SandhyaYantra Labs</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Custom JavaScript (Theme Switcher & Interactions) -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
