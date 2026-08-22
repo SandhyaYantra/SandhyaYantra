@@ -222,7 +222,7 @@ button {
   background: var(--blob-3);
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  animation-name: floatFluidCentered;
   animation-duration: 25s;
 }
 
@@ -230,6 +230,12 @@ button {
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(40px, -30px) scale(1.08); }
   100% { transform: translate(-30px, 40px) scale(0.95); }
+}
+
+@keyframes floatFluidCentered {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  50%  { transform: translate(calc(-50% + 40px), calc(-50% - 30px)) scale(1.08); }
+  100% { transform: translate(calc(-50% - 30px), calc(-50% + 40px)) scale(0.95); }
 }
 
 /* ==========================================================================
