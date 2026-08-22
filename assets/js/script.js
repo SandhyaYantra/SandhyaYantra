@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initLanguage();
   initContactForm();
+  initMapToggle();
   initSpotlightGlowEffect();
 });
 
@@ -129,6 +130,8 @@ function initLanguage() {
    1. DYNAMIC MOUSE & TOUCH SPOTLIGHT GLOW EFFECT (APPLE VISIONOS STYLE)
    ========================================================================== */
 function initSpotlightGlowEffect() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
   const glowContainers = document.querySelectorAll(
     '.glass-panel, .glass-card-wrapper, .glass-box-nested, .lab-card, .capability-item'
   );
@@ -158,14 +161,8 @@ function initSpotlightGlowEffect() {
   }
 
   glowContainers.forEach(container => {
-    // Mouse Events (Desktop & Laptops)
     container.addEventListener('mousemove', (e) => updateGlowPosition(e, container), { passive: true });
     container.addEventListener('mouseleave', () => removeGlowPosition(container));
-
-    // Touch Events (Mobile Phones & Tablets)
-    container.addEventListener('touchstart', (e) => updateGlowPosition(e, container), { passive: true });
-    container.addEventListener('touchmove', (e) => updateGlowPosition(e, container), { passive: true });
-    container.addEventListener('touchend', () => removeGlowPosition(container));
   });
 }
 
@@ -228,6 +225,32 @@ function initContactForm() {
     // Success feedback
     showToast('Message sent successfully! Sandhya will reply soon.');
     contactForm.reset();
+  });
+}
+
+function initMapToggle() {
+  const map = document.getElementById('contactMap');
+  const toggle = document.getElementById('contactMapToggle');
+  const frame = document.getElementById('contactMapFrame');
+  if (!map || !toggle || !frame) return;
+
+  toggle.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+    if (!isExpanded && !frame.firstElementChild) {
+      const iframe = document.createElement('iframe');
+      iframe.title = 'Banda Aceh Map';
+      iframe.src = map.dataset.mapSrc;
+      iframe.loading = 'lazy';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.appendChild(iframe);
+    }
+
+    toggle.setAttribute('aria-expanded', String(!isExpanded));
+    toggle.querySelector('span').textContent = isExpanded ? 'Expand Map' : 'Collapse Map';
+    toggle.querySelector('i').className = isExpanded ? 'fa-solid fa-map' : 'fa-solid fa-map-location-dot';
+    frame.classList.toggle('is-expanded', !isExpanded);
   });
 }
 

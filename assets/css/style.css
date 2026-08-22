@@ -635,6 +635,60 @@ button {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), var(--glass-inner-specular);
 }
 
+.contact-map-shell {
+  margin-top: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-inner-specular);
+  background: var(--glass-panel-bg);
+}
+
+.contact-map-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  color: var(--apple-text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.contact-map-heading > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-map-heading > span i {
+  color: var(--apple-blue);
+}
+
+.contact-map-toggle {
+  flex-shrink: 0;
+  padding: 7px 12px;
+  min-height: 38px;
+  font-size: 0.78rem;
+}
+
+.contact-map-frame {
+  display: none;
+  height: 220px;
+}
+
+.contact-map-frame.is-expanded {
+  display: block;
+}
+
+.contact-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: saturate(0.85) contrast(0.95);
+}
+
 /* ==========================================================================
    PERSONAL PAGE STYLES
    ========================================================================== */
