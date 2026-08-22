@@ -1256,3 +1256,315 @@ button {
     justify-content: flex-start;
   }
 }
+
+/* ==========================================================================
+   SOCIAL MEDIA PROFILE CARD & BUTTONS  (Liquid Glass Edition)
+   ========================================================================== */
+
+/* ── Profile Preview Card ── */
+.socmed-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  /* Same frosted-glass layer as .glass-panel */
+  background: var(--glass-panel-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  /* Specular top-edge highlight */
+  box-shadow: var(--glass-shadow), var(--glass-inner-specular);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle blue→purple tinted sheen inside the card */
+.socmed-profile-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    130deg,
+    rgba(0, 113, 227, 0.05) 0%,
+    rgba(175, 82, 222, 0.03) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.socmed-avatar-ring {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-purple) 100%);
+  padding: 2.5px;
+  box-shadow: 0 4px 16px rgba(0, 113, 227, 0.4), inset 0 1px 1px rgba(255,255,255,0.5);
+}
+
+.socmed-avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--glass-panel-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socmed-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.socmed-display-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--apple-text-primary);
+  line-height: 1.2;
+}
+
+.socmed-handle {
+  font-size: 0.8rem;
+  color: var(--apple-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.socmed-platform-badges {
+  display: flex;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.socmed-badge-pill {
+  --pill-color: #1d1d1f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--pill-color, var(--apple-text-primary));
+  color: #fff;
+  font-size: 0.7rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.22), inset 0 1px 1px rgba(255,255,255,0.3);
+  transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s ease;
+}
+
+.socmed-badge-pill:hover {
+  transform: scale(1.18) translateY(-1px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.32), inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+/* Pulsing online status dot */
+.socmed-status-dot {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--apple-green);
+  box-shadow: 0 0 0 2.5px var(--glass-panel-bg), 0 0 8px rgba(52, 199, 89, 0.8);
+  animation: socmed-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes socmed-pulse {
+  0%, 100% { box-shadow: 0 0 0 2.5px var(--glass-panel-bg), 0 0 6px  rgba(52,199,89,0.7); }
+  50%       { box-shadow: 0 0 0 2.5px var(--glass-panel-bg), 0 0 16px rgba(52,199,89,1);   }
+}
+
+/* ── Buttons Grid ── */
+.socmed-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* ── Base Liquid-Glass Button ── */
+.socmed-btn {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+
+  /* Liquid-glass surface identical to .glass-btn-secondary */
+  background: var(--btn-secondary-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--btn-secondary-border);
+
+  /* Specular top-edge + soft drop shadow */
+  box-shadow: var(--glass-inner-specular),
+              0 4px 16px rgba(0, 0, 0, 0.06);
+
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Platform-tinted glass sheen (hidden until hover) */
+.socmed-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+  border-radius: inherit;
+  background: var(--btn-tint, transparent);
+}
+
+/* Specular white top-edge streak — always visible */
+.socmed-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.85) 40%,
+    rgba(255,255,255,0.85) 60%,
+    transparent 100%
+  );
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.socmed-btn:hover::before { opacity: 1; }
+
+.socmed-btn:hover {
+  background: var(--btn-secondary-hover);
+  transform: translateY(-2px);
+  border-color: var(--btn-border-hover, var(--glass-border));
+  box-shadow: var(--glass-inner-specular),
+              var(--glass-shadow-hover),
+              0 0 0 1px var(--btn-border-hover, rgba(0,0,0,0));
+}
+
+.socmed-btn:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow: var(--glass-inner-specular), 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ── Icon Pill ── */
+.socmed-btn-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #fff;
+
+  /* Frosted glass icon background */
+  background: var(--icon-bg, var(--apple-blue));
+  /* Specular edge on icon pill */
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.45),
+              inset 0 -1px 1px rgba(0,0,0,0.12),
+              0 3px 10px var(--icon-glow, rgba(0,113,227,0.35));
+
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.25s ease;
+}
+
+.socmed-btn:hover .socmed-btn-icon {
+  transform: scale(1.1);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.55),
+              inset 0 -1px 1px rgba(0,0,0,0.12),
+              0 6px 18px var(--icon-glow, rgba(0,113,227,0.5));
+}
+
+/* Text */
+.socmed-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.socmed-btn-platform {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--apple-text-primary);
+  line-height: 1.2;
+}
+
+.socmed-btn-username {
+  font-size: 0.77rem;
+  color: var(--apple-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Arrow */
+.socmed-btn-arrow {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: var(--apple-text-muted);
+  opacity: 0.45;
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
+}
+
+.socmed-btn:hover .socmed-btn-arrow {
+  transform: translate(3px, -3px);
+  opacity: 1;
+}
+
+/* ── Per-platform tokens ── */
+
+/* GitHub */
+.socmed-btn-github {
+  --icon-bg:          #24292e;
+  --icon-glow:        rgba(36,  41, 46,  0.38);
+  --btn-tint:         linear-gradient(135deg, rgba(36,41,46,0.06) 0%, transparent 100%);
+  --btn-border-hover: rgba(36, 41, 46, 0.3);
+}
+[data-theme="dark"] .socmed-btn-github {
+  --icon-bg:   #e6edf3;
+  --icon-glow: rgba(200,210,230,0.35);
+}
+[data-theme="dark"] .socmed-btn-github .socmed-btn-icon { color: #24292e; }
+
+/* Instagram */
+.socmed-btn-instagram {
+  --icon-bg:          linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  --icon-glow:        rgba(225, 48,108,  0.42);
+  --btn-tint:         linear-gradient(135deg, rgba(225,48,108,0.07) 0%, rgba(253,204,74,0.04) 100%);
+  --btn-border-hover: rgba(225, 48,108, 0.28);
+}
+
+/* Facebook */
+.socmed-btn-facebook {
+  --icon-bg:          #1877F2;
+  --icon-glow:        rgba(24, 119,242,  0.4);
+  --btn-tint:         linear-gradient(135deg, rgba(24,119,242,0.07) 0%, transparent 100%);
+  --btn-border-hover: rgba(24,119,242,0.28);
+}
+
+/* Email */
+.socmed-btn-email {
+  --icon-bg:          #34c759;
+  --icon-glow:        rgba(52, 199, 89,  0.38);
+  --btn-tint:         linear-gradient(135deg, rgba(52,199,89,0.07) 0%, transparent 100%);
+  --btn-border-hover: rgba(52,199,89,0.28);
+}
+
