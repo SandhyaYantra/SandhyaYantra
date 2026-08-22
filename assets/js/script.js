@@ -78,6 +78,61 @@ function initLanguage() {
     'Code Refactoring': 'Refactoring Kode', 'Transforming messy spaghetti markup into semantic, maintainable, and accessible HTML/CSS.': 'Mengubah markup spaghetti yang berantakan menjadi HTML/CSS yang semantik, mudah dirawat, dan aksesibel.',
     'Ready to Build Something Clean and Fast?': 'Siap Membangun Sesuatu yang Bersih dan Cepat?', "Let's collaborate on web projects, discuss open-source tools, or build custom interfaces together.": 'Mari berkolaborasi dalam proyek web, membahas alat open source, atau membangun antarmuka kustom bersama.',
     'Start Collaboration': 'Mulai Kolaborasi', 'Learn More': 'Pelajari Lebih Lanjut'
+    , 'A high-efficiency recipe scaling and kitchen workflow orchestration tool that calculates ingredient ratios and stage timing in real-time.': 'Alat efisiensi tinggi untuk menghitung skala resep dan mengatur alur kerja dapur, termasuk rasio bahan dan waktu setiap tahap secara real-time.'
+    , 'A modular Apple VisionOS-inspired Glassmorphism design system featuring dynamic specular highlights, blur filters, and dark/light mode tokens.': 'Sistem desain Glassmorphism modular terinspirasi Apple VisionOS dengan sorotan spekular dinamis, filter blur, dan token mode terang/gelap.'
+    , 'High-speed interval execution timer tailored for culinary temperature control and Pomodoro developer deep-work sessions.': 'Timer interval berkecepatan tinggi untuk mengontrol suhu masakan dan sesi deep work pengembang dengan metode Pomodoro.'
+    , 'An ultra-responsive personal profile landing experience featuring custom theme persistence and mouse spotlight lighting effects.': 'Halaman profil personal ultraresponsif dengan penyimpanan tema kustom dan efek pencahayaan spotlight dari mouse.'
+    , 'A minimalist web content architecture blueprint that applies five-star kitchen prep structure to frontend codebases.': 'Cetak biru arsitektur konten web minimalis yang menerapkan struktur persiapan dapur bintang lima ke codebase frontend.'
+    , 'An interactive visual playground demonstrating clean separation of concerns, semantic markup, and modular CSS rules.': 'Playground visual interaktif yang menunjukkan pemisahan tanggung jawab yang bersih, markup semantik, dan aturan CSS modular.'
+    , 'I am actively seeking opportunities to collaborate on web projects, build clean components, and contribute to open-source software.': 'Saya sedang mencari kesempatan untuk berkolaborasi dalam proyek web, membuat komponen yang bersih, dan berkontribusi pada software open source.'
+    , 'Looking for a Dedicated Frontend Contributor?': 'Mencari Kontributor Frontend Berdedikasi?'
+    , 'View Future Roadmap': 'Lihat Peta Jalan Mendatang'
+    , 'A custom syntax theme and editor configuration inspired by the warmth of kitchen hearths and high-contrast ergonomics to minimize eye strain during late-night coding sessions.': 'Tema sintaks dan konfigurasi editor kustom yang terinspirasi kehangatan tungku dapur dan ergonomi kontras tinggi untuk mengurangi ketegangan mata saat coding malam hari.'
+    , 'A lightweight web canvas for pair programming and task synchronization that translates the rigorous coordination of a kitchen brigade into developer task management.': 'Canvas web ringan untuk pair programming dan sinkronisasi tugas yang menerapkan koordinasi ketat brigade dapur ke manajemen tugas pengembang.'
+    , 'Open-source development environment dotfiles, terminal optimizations, and productivity shortcuts prepared for the developer laptop workstation goal.': 'Dotfiles lingkungan pengembangan open source, optimalisasi terminal, dan pintasan produktivitas untuk target workstation laptop pengembang.'
+    , 'An ultra-lightweight (under 5KB) CSS utility library providing modern Glassmorphism components, responsive tokens, and dark mode without requiring build toolchains.': 'Pustaka utilitas CSS superringan di bawah 5KB dengan komponen Glassmorphism modern, token responsif, dan mode gelap tanpa build toolchain.'
+    , 'Publish open-source repositories on GitHub under SandhyaYantra Labs, complete developer laptop funding, and build community connections.': 'Menerbitkan repositori open source di GitHub melalui SandhyaYantra Labs, menyelesaikan pendanaan laptop pengembang, dan membangun koneksi komunitas.'
+    , 'Contribute to beginner-friendly open-source software, launch interactive frontend experiments, and start full-time developer engagements.': 'Berkontribusi pada software open source yang ramah pemula, meluncurkan eksperimen frontend interaktif, dan memulai pekerjaan pengembang penuh waktu.'
+    , 'Deepen knowledge into backend integration, web performance optimization, and expanding SandhyaYantra Labs into a respected digital laboratory.': 'Memperdalam integrasi backend dan optimasi performa web, serta mengembangkan SandhyaYantra Labs menjadi laboratorium digital yang dihormati.'
+    , 'When people hear that I am transitioning from a commercial kitchen line cook to a frontend software developer, they often assume these two worlds are complete opposites.': 'Ketika orang mendengar saya beralih dari juru masak lini dapur komersial menjadi pengembang software frontend, mereka sering mengira kedua dunia ini sangat bertolak belakang.'
+    , 'In reality, they are remarkably similar. Both environments demand meticulous preparation, high-speed execution under pressure, clear logic, and an absolute refusal to compromise on quality.': 'Kenyataannya, keduanya sangat mirip. Kedua lingkungan menuntut persiapan teliti, eksekusi cepat di bawah tekanan, logika yang jelas, dan komitmen mutlak terhadap kualitas.'
+    , 'How culinary habits directly translate into software engineering standards.': 'Bagaimana kebiasaan kuliner diterapkan langsung menjadi standar rekayasa software.'
+    , 'Whether you want to discuss frontend web development, collaborate on beginner-friendly projects, or chat about culinary survival, I am always happy to connect.': 'Baik untuk membahas pengembangan web frontend, berkolaborasi dalam proyek ramah pemula, atau mengobrol tentang bertahan di dunia kuliner, saya selalu senang terhubung.'
+    , 'Tap a platform to visit my profile directly.': 'Ketuk platform untuk langsung mengunjungi profil saya.'
+    , 'Leave your details below and I will respond to your email promptly.': 'Isi detail Anda di bawah dan saya akan segera membalas email Anda.'
+    , 'Lightweight & responsive landing pages': 'Halaman landing ringan & responsif'
+    , 'Modern Apple Liquid Glass UI components': 'Komponen UI Apple Liquid Glass modern'
+    , 'Beginner-friendly frontend collaboration': 'Kolaborasi frontend ramah pemula'
+    , 'Kitchen wisdom & anti-spaghetti code strategies': 'Kebijaksanaan dapur & strategi anti-spaghetti code'
+    , 'Your Name': 'Nama Anda', 'Your Email': 'Email Anda', 'Subject': 'Subjek', 'Message': 'Pesan'
+    , 'Send Message': 'Kirim Pesan'
+    , 'Write your message here...': 'Tulis pesan Anda di sini...'
+    , 'Project collaboration / Inquiry': 'Kolaborasi proyek / Pertanyaan'
+    , 'e.g. Alex Johnson': 'contoh: Alex Johnson'
+    , 'Expand Map': 'Buka Peta', 'Collapse Map': 'Tutup Peta'
+    , 'Operating on high-volume commercial wok lines. Learning split-second decision making, endurance under extreme heat, and coordinating seamlessly with a kitchen brigade where every second counts.': 'Bekerja di lini wok komersial bervolume tinggi. Mempelajari pengambilan keputusan dalam hitungan detik, ketahanan dalam panas ekstrem, dan koordinasi yang lancar bersama brigade dapur ketika setiap detik berarti.'
+    , 'Realized that recipes are algorithms and kitchen stations are data pipelines. Started learning foundational programming, automating kitchen calculations, and discovering a profound passion for web development.': 'Menyadari bahwa resep adalah algoritma dan stasiun dapur adalah pipeline data. Mulai mempelajari pemrograman dasar, mengotomatiskan perhitungan dapur, dan menemukan minat besar pada pengembangan web.'
+    , 'Committing fully to frontend engineering: Semantic HTML5, modern CSS Glassmorphism, and modular JavaScript ES6+. Founding SandhyaYantra Labs to build and test clean, maintainable web prototypes.': 'Berkomitmen penuh pada rekayasa frontend: HTML5 semantik, CSS Glassmorphism modern, dan JavaScript ES6+ modular. Mendirikan SandhyaYantra Labs untuk membuat dan menguji prototipe web yang bersih serta mudah dirawat.'
+    , 'Actively building open-source projects, saving for a dedicated developer laptop, and preparing for junior frontend developer roles in collaborative tech teams.': 'Aktif membangun proyek open source, menabung untuk laptop khusus pengembang, dan mempersiapkan diri untuk posisi junior frontend developer dalam tim teknologi kolaboratif.'
+    , 'The Crucible of Commercial Kitchens': 'Tempaan Dapur Komersial'
+    , 'The Evolution of a Developer': 'Evolusi Seorang Pengembang'
+    , 'The Parallels: Commercial Kitchen vs Software Engineering': 'Kesamaan: Dapur Komersial vs Rekayasa Software'
+    , 'In a professional kitchen, one unprepared station delays the entire brigade. In software engineering, one poorly architected module introduces cascading technical debt.': 'Di dapur profesional, satu stasiun yang tidak siap menunda seluruh brigade. Dalam rekayasa software, satu modul dengan arsitektur buruk menimbulkan technical debt berantai.'
+    , 'Foundation': 'Fondasi', 'The Spark': 'Pemicu', 'Dedicated Transition': 'Peralihan Penuh', 'Present & Future': 'Masa Kini & Masa Depan', 'Horizon': 'Cakrawala'
+    , 'Mastering High-Heat Execution': 'Menguasai Eksekusi Panas Tinggi'
+    , 'Discovering Algorithmic Parallels': 'Menemukan Kesamaan Algoritma'
+    , 'Mise en Place Applied to Code': 'Menerapkan Mise en Place pada Kode'
+    , 'Building SandhyaYantra Labs & Workstation Goal': 'Membangun SandhyaYantra Labs & Target Workstation'
+    , 'Culinary Discipline': 'Disiplin Kuliner', 'Software Engineering Equivalent': 'Padanan Rekayasa Software', 'The Guiding Standard': 'Standar Panduan'
+    , 'Design tokens, modular folder structure & schemas': 'Token desain, struktur folder modular & skema'
+    , 'Prepare everything before writing production code.': 'Siapkan semuanya sebelum menulis kode produksi.'
+    , 'High-Heat Wok Control': 'Kontrol Wok Panas Tinggi', 'DOM Optimization & Event Loop Performance': 'Optimasi DOM & Performa Event Loop'
+    , 'Execute swiftly without blocking the main thread.': 'Eksekusi dengan cepat tanpa memblokir main thread.'
+    , 'Spaghetti Bolognese': 'Spaghetti Bolognese', 'Spaghetti Code': 'Spaghetti Code', 'Delicious on a plate; strictly forbidden in a codebase!': 'Lezat di piring; dilarang keras dalam codebase!'
+    , 'Brigade Communication': 'Komunikasi Brigade', 'Git Version Control & Code Reviews': 'Version Control Git & Code Review'
+    , 'Communicate intent clearly and synchronize smoothly.': 'Komunikasikan maksud dengan jelas dan sinkronkan dengan lancar.'
+    , 'Clean Station at Close': 'Stasiun Bersih Saat Tutup', 'Passing Linting & Automated Verification': 'Lolos Linting & Verifikasi Otomatis'
+    , 'Leave the codebase cleaner than you found it.': 'Tinggalkan codebase dalam kondisi lebih bersih.'
   };
   const savedLanguage = localStorage.getItem('sandhya_language_v2') || 'en';
   const originalTextNodes = new WeakMap();
@@ -99,6 +154,12 @@ function initLanguage() {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     let textNode;
     while ((textNode = walker.nextNode())) translateTextNode(textNode, language);
+
+    document.querySelectorAll('.quote-highlight-glass').forEach((element) => {
+      if (!element.dataset.originalText) element.dataset.originalText = element.textContent;
+      const original = element.dataset.originalText.trim().replace(/\s+/g, ' ');
+      if (idTranslations[original]) element.textContent = language === 'id' ? idTranslations[original] : original;
+    });
 
     document.querySelectorAll('[title], [aria-label], [alt], [placeholder]').forEach((element) => {
       ['title', 'aria-label', 'alt', 'placeholder'].forEach((attribute) => {
