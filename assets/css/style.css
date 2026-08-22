@@ -707,6 +707,319 @@ button {
   margin-bottom: 16px;
 }
 
+
+.personal-page {
+  max-width: 1120px;
+}
+
+.personal-profile-hero {
+  margin-bottom: 32px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-panel-bg);
+  box-shadow: var(--glass-shadow);
+}
+
+.personal-cover-placeholder {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #162033 0%, #263b50 52%, #8b5e3c 100%);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.personal-cover-placeholder span {
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.personal-cover-placeholder i {
+  margin-right: 7px;
+}
+
+.personal-identity {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 clamp(20px, 5vw, 52px) 34px;
+}
+
+.personal-avatar-frame {
+  width: clamp(130px, 18vw, 190px);
+  height: clamp(130px, 18vw, 190px);
+  flex: 0 0 auto;
+  margin-top: -68px;
+  overflow: hidden;
+  border: 6px solid var(--glass-panel-bg);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2d4055, #b77950);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.personal-avatar-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.personal-avatar-frame.is-missing::after {
+  content: 'Profile photo';
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.personal-identity-copy {
+  padding-top: 24px;
+}
+
+.personal-identity-copy h1 {
+  margin: 6px 0 8px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+
+.personal-identity-copy h1 i {
+  color: var(--apple-blue);
+  font-size: 0.55em;
+  vertical-align: middle;
+}
+
+.personal-identity-copy > p {
+  max-width: 620px;
+  color: var(--apple-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.personal-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.personal-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+  gap: clamp(24px, 6vw, 80px);
+  align-items: start;
+  margin: 0 auto clamp(58px, 9vw, 100px);
+  max-width: 1000px;
+}
+
+.personal-intro-copy h2,
+.personal-thanks-heading h2,
+.personal-values-panel h2 {
+  margin: 8px 0 18px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.personal-intro-copy .personal-bio-lead {
+  max-width: 650px;
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.personal-facts {
+  display: grid;
+  gap: 12px;
+  padding-top: 28px;
+}
+
+.personal-facts > div {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+}
+
+.personal-facts i {
+  width: 20px;
+  padding-top: 3px;
+  color: var(--apple-blue);
+}
+
+.personal-facts span {
+  display: grid;
+  gap: 3px;
+  color: var(--apple-text-secondary);
+  font-size: 0.9rem;
+}
+
+.personal-facts strong {
+  color: var(--apple-text-primary);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.personal-thanks-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(300px, 1.18fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  margin-bottom: clamp(58px, 9vw, 104px);
+}
+
+.personal-thanks-heading > p {
+  max-width: 440px;
+  color: var(--apple-text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.personal-couple-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-panel-bg);
+  box-shadow: var(--glass-shadow);
+}
+
+.personal-couple-card img {
+  width: 100%;
+  min-height: 440px;
+  display: block;
+  object-fit: cover;
+}
+
+.personal-couple-card figcaption {
+  display: flex;
+  gap: 12px;
+  padding: 18px 20px 20px;
+  color: var(--apple-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.personal-couple-card figcaption i {
+  padding-top: 3px;
+  color: #ff375f;
+}
+
+.personal-couple-card.is-missing::before {
+  content: 'Couple photo';
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  color: var(--apple-text-muted);
+  background: linear-gradient(135deg, var(--glass-card-nested), var(--glass-panel-hover));
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.personal-values-panel {
+  padding: clamp(24px, 5vw, 42px);
+}
+
+.personal-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.personal-values-grid > div {
+  padding-top: 18px;
+  border-top: 1px solid var(--glass-border-subtle);
+}
+
+.personal-values-grid i {
+  margin-bottom: 14px;
+  color: var(--apple-blue);
+  font-size: 1.2rem;
+}
+
+.personal-values-grid h3 {
+  margin-bottom: 7px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: 1rem;
+}
+
+.personal-values-grid p {
+  color: var(--apple-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.personal-page > .glass-grid-2,
+.personal-page > section.glass-panel:not(.personal-values-panel),
+.personal-page > div[style] {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .personal-cover-placeholder {
+    min-height: 170px;
+  }
+
+  .personal-identity {
+    display: block;
+    padding: 0 20px 26px;
+  }
+
+  .personal-avatar-frame {
+    margin: -54px auto 0;
+  }
+
+  .personal-identity-copy {
+    padding-top: 18px;
+    text-align: center;
+  }
+
+  .personal-identity-copy h1 {
+    font-size: 2.4rem;
+  }
+
+  .personal-hero-links {
+    justify-content: center;
+  }
+
+  .personal-intro-grid,
+  .personal-thanks-section {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-facts {
+    padding-top: 0;
+  }
+
+  .personal-couple-card img {
+    min-height: 360px;
+    max-height: 520px;
+  }
+
+  .personal-values-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
 .personal-meta-list {
   display: flex;
   flex-direction: column;
@@ -1046,6 +1359,397 @@ button {
 /* ==========================================================================
    LANDING HERO STYLES (INDEX.HTML SPECIFIC)
    ========================================================================== */
+.landing-page {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 72px) clamp(18px, 4vw, 40px) 64px;
+  position: relative;
+  z-index: 10;
+}
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.98fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 78px);
+  min-height: min(620px, calc(100vh - 100px));
+}
+
+.landing-hero-copy {
+  max-width: 620px;
+}
+
+.landing-eyebrow,
+.landing-kicker {
+  color: var(--apple-blue);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.landing-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.landing-hero h1 {
+  max-width: 560px;
+  margin-bottom: 18px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+.landing-hero-lead {
+  max-width: 540px;
+  margin-bottom: 12px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.landing-hero-support {
+  max-width: 500px;
+  margin-bottom: 28px;
+  color: var(--apple-text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.landing-hero-visual {
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--glass-panel-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transform: rotate(1.5deg);
+}
+
+.landing-hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(155deg, transparent 35%, rgba(0, 0, 0, 0.58) 100%);
+  pointer-events: none;
+}
+
+.landing-hero-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: block;
+  object-fit: cover;
+}
+
+.landing-visual-caption {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.landing-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--apple-green);
+  box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.2);
+}
+
+.landing-skill-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 18px 0 clamp(56px, 9vw, 110px);
+  padding: 18px 0;
+  border-top: 1px solid var(--glass-border-subtle);
+  border-bottom: 1px solid var(--glass-border-subtle);
+}
+
+.landing-skill-strip span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--apple-text-secondary);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.landing-skill-strip i {
+  color: var(--apple-blue);
+}
+
+.landing-section {
+  margin-bottom: clamp(56px, 9vw, 104px);
+}
+
+.landing-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.landing-section h2,
+.landing-story-band h2 {
+  margin-top: 8px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.landing-text-link {
+  flex-shrink: 0;
+  color: var(--apple-blue);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.landing-text-link i {
+  margin-left: 5px;
+}
+
+.landing-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.landing-project-card {
+  min-height: 250px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: var(--glass-panel-bg);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition);
+}
+
+.landing-project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--apple-blue);
+}
+
+.landing-project-card > i {
+  display: block;
+  margin: 30px 0 22px;
+  color: var(--apple-blue);
+  font-size: 1.6rem;
+}
+
+.landing-project-number {
+  color: var(--apple-text-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.landing-project-card h3 {
+  margin-bottom: 8px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: 1.2rem;
+}
+
+.landing-project-card p,
+.landing-story-band p {
+  color: var(--apple-text-secondary);
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+.landing-story-band {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  padding: clamp(24px, 5vw, 54px) 0;
+  border-top: 1px solid var(--glass-border-subtle);
+}
+
+.landing-story-band > div {
+  max-width: 680px;
+}
+
+.landing-story-band p {
+  max-width: 580px;
+  margin-top: 16px;
+  font-size: 1.05rem;
+}
+
+.portfolio-featured {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(24px, 5vw, 56px);
+  align-items: center;
+  margin-bottom: clamp(32px, 6vw, 64px);
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-panel-bg);
+  box-shadow: var(--glass-shadow);
+}
+
+.portfolio-featured-image {
+  min-height: 300px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.portfolio-featured-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: block;
+  object-fit: cover;
+}
+
+.portfolio-project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: var(--apple-blue);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.portfolio-project-status span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--apple-green);
+}
+
+.portfolio-featured-content h2 {
+  margin-bottom: 12px;
+  color: var(--apple-text-primary);
+  font-family: 'Outfit', var(--font-sans);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+}
+
+.portfolio-featured-lead {
+  max-width: 560px;
+  margin-bottom: 18px;
+  color: var(--apple-text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.portfolio-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.portfolio-tech-list span {
+  padding: 5px 10px;
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--apple-text-secondary);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.portfolio-featured-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .portfolio-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-featured-image,
+  .portfolio-featured-image img {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 760px) {
+  .landing-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .landing-hero-visual {
+    min-height: 300px;
+    transform: none;
+  }
+
+  .landing-hero-visual img {
+    min-height: 300px;
+  }
+
+  .landing-skill-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .landing-project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-project-card {
+    min-height: 0;
+  }
+
+  .landing-story-band,
+  .landing-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .landing-page {
+    padding-top: 24px;
+  }
+
+  .landing-hero h1 {
+    font-size: 3.25rem;
+  }
+
+  .landing-skill-strip span {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.76rem;
+  }
+}
+
 .glass-profile-main-container {
   flex: 1;
   display: flex;
@@ -1282,13 +1986,57 @@ button {
 
 /* Mobile Devices (Smartphones < 640px) */
 @media (max-width: 640px) {
+  html {
+    scroll-behavior: auto;
+  }
+
   :root {
-    --glass-blur: blur(10px) saturate(125%);
+    --glass-blur: none;
+  }
+
+  .glass-ambient-bg {
+    display: none;
   }
 
   .ambient-blob {
     animation: none;
-    filter: blur(45px);
+    filter: none;
+  }
+
+  .glass-navbar,
+  .glass-panel,
+  .glass-card-wrapper,
+  .glass-box-nested,
+  .glass-badge,
+  .glass-btn,
+  .glass-cta-btn,
+  .glass-theme-btn,
+  .glass-language-btn,
+  .glass-toast,
+  .socmed-btn {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: none;
+  }
+
+  .glass-panel::before,
+  .glass-panel::after,
+  .glass-card-wrapper::before,
+  .glass-card-wrapper::after,
+  .glass-box-nested::before,
+  .glass-box-nested::after,
+  .lab-card::before,
+  .lab-card::after,
+  .capability-item::before,
+  .capability-item::after {
+    display: none;
+  }
+
+  .glass-header-section,
+  .glass-panel,
+  .glass-card-wrapper,
+  .socmed-status-dot {
+    animation: none;
   }
 
   .glass-panel,
@@ -1318,14 +2066,22 @@ button {
     gap: 8px;
   }
 
+  .glass-theme-btn,
+  .glass-language-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
   .glass-nav-tab .tab-label {
     display: none;
   }
 
   .glass-nav-tab {
     padding: 0 10px;
-    height: 36px;
-    min-width: 36px;
+    height: 34px;
+    min-width: 34px;
   }
 
   .glass-nav-center {
@@ -1355,7 +2111,11 @@ button {
 /* Small Smartphone Viewports (< 400px) */
 @media (max-width: 400px) {
   .glass-brand-title {
-    display: none;
+    display: inline-flex;
+    max-width: 90px;
+    font-size: 0.78rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .glass-navbar {
@@ -1365,7 +2125,13 @@ button {
 
   .glass-nav-tab {
     padding: 0 8px;
-    min-width: 32px;
+    min-width: 30px;
+    height: 32px;
+  }
+
+  .glass-brand-title {
+    max-width: 84px;
+    font-size: 0.74rem;
   }
 
   .glass-nav-center {

@@ -74,16 +74,61 @@
   <!-- ==========================================================================
        MAIN CONTENT CONTAINER
        ========================================================================== -->
-  <main class="glass-page-container">
-    
-    <!-- Section Header -->
-    <section class="glass-header-section">
-      <span class="glass-badge"><i class="fa-solid fa-user"></i> About & Background</span>
-      <h1 class="glass-page-title">Personal Profile</h1>
-      <p class="glass-page-subtitle">
-        The story, technical foundations, and philosophy of a culinary craftsman transitioning into frontend web development.
-      </p>
+  <main class="glass-page-container personal-page">
+    <section class="personal-profile-hero">
+      <div class="personal-cover-placeholder">
+        <span><i class="fa-solid fa-image"></i> Cover photo coming soon</span>
+      </div>
+      <div class="personal-identity">
+        <div class="personal-avatar-frame">
+          <img src="assets/img/profile-dian.webp" loading="eager" decoding="async" alt="Portrait of Dian Septio" onerror="this.hidden=true; this.parentElement.classList.add('is-missing')">
+        </div>
+        <div class="personal-identity-copy">
+          <span class="landing-kicker">The person behind the work</span>
+          <h1>Dian Septio <i class="fa-solid fa-circle-check" aria-label="Verified profile"></i></h1>
+          <p>Chef, frontend developer in transition, and builder of thoughtful digital tools.</p>
+          <div class="personal-hero-links">
+            <a href="portfolio.html" class="glass-btn glass-btn-primary"><i class="fa-solid fa-briefcase"></i> View My Work</a>
+            <a href="contact.html" class="glass-btn glass-btn-secondary"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <section class="personal-intro-grid">
+      <div class="personal-intro-copy">
+        <span class="landing-kicker">About &amp; background</span>
+        <h2>From high-heat kitchens to clean code.</h2>
+        <p class="personal-bio-lead">I am Dian, a culinary professional channeling years of kitchen discipline into modern software development.</p>
+        <p class="personal-bio-text">Fast-paced service taught me endurance, split-second problem solving, and the quiet power of preparing every station before the rush begins.</p>
+        <p class="personal-bio-text">Now I bring that same care to frontend work: clear structure, responsive interfaces, and details that make digital experiences feel natural.</p>
+      </div>
+      <aside class="personal-facts">
+        <div><i class="fa-solid fa-location-dot"></i><span><strong>Based in</strong>Banda Aceh, Indonesia</span></div>
+        <div><i class="fa-solid fa-code"></i><span><strong>Focused on</strong>HTML, CSS &amp; JavaScript</span></div>
+        <div><i class="fa-solid fa-seedling"></i><span><strong>Currently</strong>Building and learning in public</span></div>
+      </aside>
+    </section>
+
+    <section class="personal-thanks-section">
+      <div class="personal-thanks-heading">
+        <span class="landing-kicker">A quiet thank you</span>
+        <h2>For the one who stayed through the journey.</h2>
+        <p>Behind every late-night idea and every new line of code, there has been someone who kept showing up. This space is for her.</p>
+      </div>
+      <figure class="personal-couple-card">
+        <img src="assets/img/dian-and-partner.png" loading="lazy" decoding="async" alt="Dian Septio with his partner" onerror="this.hidden=true; this.parentElement.classList.add('is-missing')">
+        <figcaption><i class="fa-solid fa-heart"></i><span>Thank you for believing in me, being patient with the process, and making the hard days feel lighter. I am grateful to have you beside me.</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="glass-panel personal-values-panel">
+      <span class="landing-kicker">What guides me</span>
+      <h2>Good work starts with care.</h2>
+      <div class="personal-values-grid"><div><i class="fa-solid fa-list-check"></i><h3>Prepare deliberately</h3><p>Clear foundations make better work possible.</p></div><div><i class="fa-solid fa-fire-flame-curved"></i><h3>Stay curious</h3><p>Every challenge is another station to learn.</p></div><div><i class="fa-solid fa-handshake"></i><h3>Build together</h3><p>The best journeys are not taken alone.</p></div></div>
+    </section>
+
+    <!-- Detailed profile sections -->
 
     <!-- Top 2-Column Grid: Biography & Meta -->
     <div class="glass-grid-2">
@@ -215,6 +260,6 @@
   </main>
 
   <!-- Custom JavaScript (Theme Switcher & Interactions) -->
-  <script src="assets/js/script.js?v=5"></script>
+  <script src="assets/js/script.js?v=6"></script>
 </body>
 </html>
