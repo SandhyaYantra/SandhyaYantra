@@ -29,7 +29,7 @@ function initLanguage() {
     'How years of high-heat culinary execution, relentless timing, and brigade discipline shaped my transition into modern software engineering.': 'Bagaimana pengalaman bertahun-tahun memasak dengan panas tinggi, ketepatan waktu, dan disiplin brigade membentuk peralihan saya ke rekayasa perangkat lunak modern.',
     'The digital workshop and experimental studio dedicated to clean web engineering, responsive architectures, and zero-spaghetti code.': 'Bengkel digital dan studio eksperimen untuk rekayasa web yang bersih, arsitektur responsif, dan kode tanpa spaghetti.',
     'Upcoming experimental prototypes, developer tools, and architectural explorations currently in the pipeline at SandhyaYantra Labs.': 'Prototipe eksperimen, alat pengembang, dan eksplorasi arsitektur yang sedang direncanakan di SandhyaYantra Labs.',
-    'From High-Heat Kitchens to Clean Code': 'Dari Dapur Panas ke Kode Bersih',
+    'From High-Heat Kitchens to Clean Code': 'Dari Dapur Panas ke Kode Yang Bersih',
     'Current Focus & Ambitions': 'Fokus & Ambisi Saat Ini', 'Skills & Technical Foundations': 'Keahlian & Fondasi Teknis',
     'Frontend Development': 'Pengembangan Frontend', 'Culinary & Professional Strengths': 'Keahlian Kuliner & Profesional',
     'Developer Workstation Goal': 'Target Workstation Pengembang', 'Continuous Skill Acquisition': 'Pengembangan Keahlian Berkelanjutan',
@@ -40,7 +40,7 @@ function initLanguage() {
     'Get in Touch': 'Hubungi Saya', 'Explore Active Portfolio': 'Jelajahi Portofolio Aktif',
     'Propose a Collaboration': 'Ajukan Kolaborasi', 'Find Me Online': 'Temukan Saya Online',
     'What We Can Build': 'Yang Bisa Kita Bangun', 'Send a Message': 'Kirim Pesan',
-    'High Performance': 'Performa Tinggi', 'Clean Code Standard': 'Standar Kode Bersih',
+    'High Performance': 'Performa Tinggi', 'Clean Code Standard': 'Standar Kode Yang Bersih',
     'Fluid Responsiveness': 'Responsif di Semua Layar', 'Zero Framework Bloat': 'Tanpa Beban Framework',
     'Featured Labs & Projects': 'Lab & Proyek Unggulan', 'Studio Capabilities & Services': 'Kemampuan & Layanan Studio',
     'In Planning': 'Dalam Perencanaan', Prototyping: 'Pembuatan Prototipe', 'In Progress': 'Sedang Berjalan',
@@ -149,15 +149,15 @@ function initLanguage() {
     , 'Featured Project': 'Proyek Unggulan', 'Live Demo': 'Demo Langsung', 'View Code': 'Lihat Kode'
     , 'A browser-based workflow for scaling recipes, organizing preparation, and keeping timing visible when the kitchen gets busy.': 'Alur kerja berbasis browser untuk mengatur skala resep, menata persiapan, dan menjaga waktu tetap terlihat saat dapur sedang sibuk.'
     , 'The person behind the work': 'Orang di balik karya', 'Frontend Developer in Transition': 'Frontend Developer dalam Masa Peralihan'
-    , 'Chef, frontend developer in transition, and builder of thoughtful digital tools.': 'Koki, frontend developer dalam masa peralihan, dan pembuat alat digital yang penuh pertimbangan.'
-    , 'About & background': 'Tentang & latar belakang', 'From high-heat kitchens to clean code.': 'Dari dapur panas ke kode bersih.'
+    , 'Chef, frontend developer in transition, and builder of thoughtful digital tools.': 'Juru masak, frontend developer dalam masa peralihan, dan pembuat alat digital yang penuh pertimbangan.'
+    , 'About & background': 'Tentang & latar belakang', 'From high-heat kitchens to clean code.': 'Dari dapur panas ke kode yang bersih.'
     , 'I am Dian, a culinary professional channeling years of kitchen discipline into modern software development.': 'Saya Dian, profesional kuliner yang menerapkan disiplin bertahun-tahun di dapur ke pengembangan software modern.'
     , 'Fast-paced service taught me endurance, split-second problem solving, and the quiet power of preparing every station before the rush begins.': 'Layanan yang serba cepat mengajarkan saya ketahanan, pemecahan masalah dalam hitungan detik, dan kekuatan mempersiapkan setiap stasiun sebelum kesibukan dimulai.'
     , 'Now I bring that same care to frontend work: clear structure, responsive interfaces, and details that make digital experiences feel natural.': 'Kini saya membawa ketelitian yang sama ke pekerjaan frontend: struktur jelas, antarmuka responsif, dan detail yang membuat pengalaman digital terasa alami.'
     , 'Based in': 'Berbasis di', 'Focused on': 'Fokus pada', 'Currently': 'Saat ini', 'Building and learning in public': 'Membangun dan belajar secara terbuka'
     , 'A quiet thank you': 'Ucapan terima kasih kecil', 'For the one who stayed through the journey.': 'Untuk dia yang tetap menemani perjalanan ini.'
     , 'Behind every late-night idea and every new line of code, there has been someone who kept showing up. This space is for her.': 'Di balik setiap ide tengah malam dan baris kode baru, ada seseorang yang selalu hadir. Ruang ini untuknya.'
-    , 'Thank you for believing in me, being patient with the process, and making the hard days feel lighter. I am grateful to have you beside me.': 'Terima kasih sudah percaya pada saya, sabar menjalani proses ini, dan membuat hari-hari sulit terasa lebih ringan. Saya bersyukur memilikimu di sisi saya.'
+    , 'Thank you for believing in me, being patient with the process, and making the hard days feel lighter. I am grateful to have you beside me.': 'Terima kasih sudah percaya pada saya, sabar menjalani proses ini, dan membuat hari-hari sulit terasa lebih ringan. Saya bersyukur memilikimu. (agak lebay yaaa,,, tapi gaapa lah mueheheeee)'
     , 'What guides me': 'Yang membimbing saya', 'Good work starts with care.': 'Karya yang baik dimulai dari kepedulian.'
     , 'Prepare deliberately': 'Bersiap dengan sengaja', 'Clear foundations make better work possible.': 'Fondasi yang jelas memungkinkan karya yang lebih baik.'
     , 'Stay curious': 'Tetap ingin tahu', 'Every challenge is another station to learn.': 'Setiap tantangan adalah stasiun baru untuk belajar.'
