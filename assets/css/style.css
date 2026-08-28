@@ -756,11 +756,19 @@ button {
   margin-right: 7px;
 }
 
+/* Gunakan selector yang lebih panjang agar lebih kuat */
+.personal-identity .personal-avatar-frame {
+  position: relative !important;
+  z-index: 99 !important;
+}
+
 .personal-identity {
   display: flex;
   align-items: center;
   gap: 28px;
   padding: 0 clamp(20px, 5vw, 52px) 34px;
+  position: relative;
+  z-index: 5;
 }
 
 .personal-avatar-frame {
@@ -771,8 +779,13 @@ button {
   overflow: hidden;
   border: 6px solid var(--glass-panel-bg);
   border-radius: 50%;
-  background: linear-gradient(135deg, #2d4055, #b77950);
+  background: linear-gradient(135deg, #001022, #000000);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.personal-avatar-frame {
+  position: relative;
+  z-index: 2;
 }
 
 .personal-avatar-frame img {
