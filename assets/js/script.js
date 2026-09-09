@@ -8,9 +8,155 @@ document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
   initContactForm();
   initMapToggle();
+  initRecipeEngine();
   initSpotlightGlowEffect();
 });
 
+
+/* ============================================================================
+   5. CLEANRECIPE ENGINE
+   ============================================================================ */
+function initRecipeEngine() {
+  const picker = document.getElementById('recipePicker');
+  const servingsInput = document.getElementById('servingsInput');
+  if (!picker || !servingsInput) return;
+
+  const recipes = [
+    {
+      id: 'fried-rice', name: 'Wok fried rice', category: 'Fast station', time: '25 min',
+      description: 'A high-heat baseline for a clean, fast service plate.', servings: 4,
+      ingredients: [
+        ['Cooked jasmine rice', 600, 'g'], ['Eggs', 3, 'pcs'], ['Chicken thigh, diced', 240, 'g'],
+        ['Spring onion', 60, 'g'], ['Garlic, minced', 15, 'g'], ['Light soy sauce', 45, 'ml'], ['Neutral oil', 30, 'ml']
+      ],
+      stages: [['Set the station', 5], ['Sear the chicken', 6], ['Wok the aromatics and egg', 4], ['Fold, season, and finish', 10]]
+    },
+    {
+      id: 'tomato-pasta', name: 'Tomato basil pasta', category: 'Comfort', time: '35 min',
+      description: 'A bright tomato sauce with enough structure for a busy prep list.', servings: 4,
+      ingredients: [
+        ['Dried spaghetti', 320, 'g'], ['Crushed tomatoes', 800, 'g'], ['Garlic, sliced', 20, 'g'],
+        ['Basil leaves', 30, 'g'], ['Parmesan', 80, 'g'], ['Olive oil', 60, 'ml'], ['Chilli flakes', 4, 'g']
+      ],
+      stages: [['Boil the pasta water', 10], ['Build the tomato base', 12], ['Toss pasta with sauce', 8], ['Plate and finish', 5]]
+    },
+    {
+      id: 'coconut-curry', name: 'Coconut vegetable curry', category: 'One pot', time: '40 min',
+      description: 'A flexible one-pot curry designed for calm, organized prep.', servings: 4,
+      ingredients: [
+        ['Mixed vegetables', 700, 'g'], ['Coconut milk', 400, 'ml'], ['Yellow curry paste', 80, 'g'],
+        ['Onion, sliced', 180, 'g'], ['Vegetable stock', 300, 'ml'], ['Lime juice', 30, 'ml'], ['Coriander', 25, 'g']
+      ],
+      stages: [['Prep and cut vegetables', 10], ['Bloom curry paste', 5], ['Simmer until tender', 20], ['Balance and garnish', 5]]
+    }
+  ];
+
+  const savedRecipe = localStorage.getItem('cleanrecipe_active') || recipes[0].id;
+  const savedServings = Number(localStorage.getItem('cleanrecipe_servings')) || recipes[0].servings;
+  let activeRecipe = recipes.find(recipe => recipe.id === savedRecipe) || recipes[0];
+  let activeTimerId = null;
+  let timerRemaining = 0;
+  let timerInterval = null;
+  let timerRunning = false;
+
+  function getCheckedStages() {
+    return JSON.parse(localStorage.getItem(`cleanrecipe_stages_${activeRecipe.id}`) || '[]');
+  }
+
+  function renderPicker() {
+    picker.innerHTML = recipes.map(recipe => `
+      <button class="recipe-picker-item${recipe.id === activeRecipe.id ? ' is-active' : ''}" type="button" data-recipe-id="${recipe.id}" role="option" aria-selected="${recipe.id === activeRecipe.id}">
+        <span class="recipe-picker-icon"><i class="fa-solid fa-${recipe.id === 'fried-rice' ? 'fire' : recipe.id === 'tomato-pasta' ? 'bowl-food' : 'leaf'}"></i></span>
+        <span><strong>${recipe.name}</strong><small>${recipe.category} · ${recipe.time}</small></span><i class="fa-solid fa-chevron-right"></i>
+      </button>`).join('');
+    picker.querySelectorAll('[data-recipe-id]').forEach(button => button.addEventListener('click', () => {
+      activeRecipe = recipes.find(recipe => recipe.id === button.dataset.recipeId) || recipes[0];
+      servingsInput.value = activeRecipe.servings;
+      localStorage.setItem('cleanrecipe_active', activeRecipe.id);
+      stopTimer();
+      render();
+    }));
+  }
+
+  function formatAmount(amount) {
+    return Number.isInteger(amount) ? amount : Number(amount.toFixed(1));
+  }
+
+  function render() {
+    const servings = Math.min(40, Math.max(1, Number(servingsInput.value) || activeRecipe.servings));
+    servingsInput.value = servings;
+    document.getElementById('servingsValue').textContent = servings;
+    document.getElementById('recipeTitle').textContent = activeRecipe.name;
+    document.getElementById('recipeDescription').textContent = activeRecipe.description;
+    document.getElementById('recipeMeta').textContent = `${activeRecipe.category} · ${activeRecipe.time}`;
+    document.getElementById('ingredientCount').textContent = `${activeRecipe.ingredients.length} items`;
+    document.getElementById('ingredientList').innerHTML = activeRecipe.ingredients.map(([name, amount, unit], index) => `
+      <div class="ingredient-row"><span class="ingredient-dot">${String(index + 1).padStart(2, '0')}</span><span>${name}</span><strong>${formatAmount(amount * servings / activeRecipe.servings)} ${unit}</strong></div>`).join('');
+
+    const checkedStages = getCheckedStages();
+    document.getElementById('stageList').innerHTML = activeRecipe.stages.map(([name, minutes], index) => `
+      <div class="stage-row${checkedStages.includes(index) ? ' is-complete' : ''}">
+        <label><input type="checkbox" data-stage-index="${index}"${checkedStages.includes(index) ? ' checked' : ''}><span class="stage-check"><i class="fa-solid fa-check"></i></span><span><strong>${name}</strong><small>${minutes} minutes</small></span></label>
+        <button class="stage-start" type="button" data-stage-index="${index}" aria-label="Start ${name}"><i class="fa-solid fa-play"></i></button>
+      </div>`).join('');
+    document.querySelectorAll('[data-stage-index]').forEach(element => {
+      if (element.matches('input')) element.addEventListener('change', event => {
+        const nextChecked = getCheckedStages().filter(value => value !== Number(event.target.dataset.stageIndex));
+        if (event.target.checked) nextChecked.push(Number(event.target.dataset.stageIndex));
+        localStorage.setItem(`cleanrecipe_stages_${activeRecipe.id}`, JSON.stringify(nextChecked));
+        render();
+      });
+      if (element.matches('.stage-start')) element.addEventListener('click', () => startTimer(Number(element.dataset.stageIndex)));
+    });
+    document.getElementById('completedStages').textContent = `${checkedStages.length} / ${activeRecipe.stages.length} complete`;
+    document.getElementById('recipeStatus').textContent = checkedStages.length === activeRecipe.stages.length ? 'Station complete' : 'Station ready';
+    renderPicker();
+    localStorage.setItem('cleanrecipe_servings', servings);
+  }
+
+  function startTimer(index) {
+    stopTimer();
+    activeTimerId = index;
+    timerRemaining = activeRecipe.stages[index][1] * 60;
+    timerRunning = true;
+    document.getElementById('activeTimer').hidden = false;
+    document.getElementById('timerStageName').textContent = activeRecipe.stages[index][0];
+    updateTimerReadout();
+    timerInterval = setInterval(() => {
+      if (!timerRunning) return;
+      timerRemaining -= 1;
+      updateTimerReadout();
+      if (timerRemaining <= 0) {
+        stopTimer();
+        showToast('Stage complete. Nice work.');
+      }
+    }, 1000);
+  }
+
+  function updateTimerReadout() {
+    const minutes = Math.floor(timerRemaining / 60).toString().padStart(2, '0');
+    const seconds = (timerRemaining % 60).toString().padStart(2, '0');
+    document.getElementById('timerReadout').textContent = `${minutes}:${seconds}`;
+    document.getElementById('timerButton').innerHTML = timerRunning ? '<i class="fa-solid fa-pause"></i> Pause' : '<i class="fa-solid fa-play"></i> Resume';
+  }
+
+  function stopTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = null;
+    activeTimerId = null;
+    timerRunning = false;
+    const timer = document.getElementById('activeTimer');
+    if (timer) timer.hidden = true;
+  }
+
+  document.getElementById('servingsDown').addEventListener('click', () => { servingsInput.value = Math.max(1, Number(servingsInput.value) - 1); render(); });
+  document.getElementById('servingsUp').addEventListener('click', () => { servingsInput.value = Math.min(40, Number(servingsInput.value) + 1); render(); });
+  servingsInput.addEventListener('change', render);
+  document.getElementById('timerButton').addEventListener('click', () => { if (activeTimerId === null) return; timerRunning = !timerRunning; updateTimerReadout(); });
+  render();
+  servingsInput.value = savedServings;
+  render();
+}
 /* ==========================================================================\n+   2. LANGUAGE SWITCHER (INDONESIAN / ENGLISH WITH LOCALSTORAGE)\n+   ========================================================================== */
 function initLanguage() {
   const languageToggleBtn = document.getElementById('languageToggleBtn');

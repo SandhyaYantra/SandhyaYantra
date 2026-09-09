@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CleanRecipe Engine | Sandhya Yantra</title>
+  <meta name="description" content="Scale recipes, prepare ingredients, and run kitchen stages with CleanRecipe Engine.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="recipe-engine-body">
+  <div class="glass-ambient-bg" aria-hidden="true">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
+  </div>
+
+  <header class="glass-navbar">
+    <div class="glass-nav-left"><a href="index.html" class="glass-brand-title">Sandhya Yantra</a></div>
+    <nav class="glass-nav-center" aria-label="Main Navigation">
+      <a href="personal.html" class="glass-nav-tab" title="Personal Profile"><i class="fa-solid fa-user"></i><span class="tab-label">Personal</span></a>
+      <a href="sandhyayantralabs.html" class="glass-nav-tab active" title="SandhyaYantra Labs"><i class="fa-solid fa-flask"></i><span class="tab-label">Labs</span></a>
+      <a href="contact.html" class="glass-nav-tab" title="Contact"><i class="fa-solid fa-envelope"></i><span class="tab-label">Contact</span></a>
+    </nav>
+    <div class="glass-nav-right">
+      <button class="glass-theme-btn" id="themeToggleBtn" title="Toggle theme" aria-label="Toggle theme"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
+      <button class="glass-language-btn" id="languageToggleBtn" type="button" aria-label="Change language"><span id="languageLabel">EN</span></button>
+    </div>
+  </header>
+
+  <main class="recipe-page">
+    <section class="recipe-intro">
+      <div>
+        <a class="recipe-back-link" href="sandhyayantralabs.html"><i class="fa-solid fa-arrow-left"></i> Back to Labs</a>
+        <span class="glass-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> CleanRecipe Engine / v1.0</span>
+        <h1 class="glass-page-title">Make the recipe fit the station.</h1>
+        <p class="glass-page-subtitle">Scale portions, prep with intention, and keep every stage visible when service gets loud.</p>
+      </div>
+      <div class="recipe-status"><span></span><strong id="recipeStatus">Station ready</strong><small>Saved in this browser</small></div>
+    </section>
+
+    <section class="recipe-workspace" aria-label="Recipe workspace">
+      <aside class="recipe-sidebar glass-panel">
+        <div class="recipe-panel-heading"><span class="recipe-section-label">01 / Choose a recipe</span><i class="fa-solid fa-book-open"></i></div>
+        <div class="recipe-picker" id="recipePicker" role="listbox" aria-label="Recipe list"></div>
+        <div class="recipe-note"><i class="fa-solid fa-circle-info"></i><span>Start with a recipe, then adjust the servings for your station.</span></div>
+      </aside>
+
+      <div class="recipe-main-column">
+        <section class="recipe-card glass-panel">
+          <div class="recipe-card-topline"><span class="recipe-section-label">02 / Scale the batch</span><span class="recipe-meta" id="recipeMeta"></span></div>
+          <div class="recipe-heading-row"><div><h2 id="recipeTitle"></h2><p id="recipeDescription"></p></div><div class="recipe-icon-mark"><i class="fa-solid fa-utensils"></i></div></div>
+          <div class="servings-control">
+            <div><span class="recipe-control-label">Target servings</span><strong><span id="servingsValue">4</span> people</strong></div>
+            <div class="servings-stepper"><button id="servingsDown" type="button" aria-label="Decrease servings"><i class="fa-solid fa-minus"></i></button><input id="servingsInput" type="number" min="1" max="40" value="4" aria-label="Target servings"><button id="servingsUp" type="button" aria-label="Increase servings"><i class="fa-solid fa-plus"></i></button></div>
+          </div>
+          <div class="ingredients-heading"><h3>Ingredient mise en place</h3><span id="ingredientCount"></span></div>
+          <div class="ingredient-list" id="ingredientList"></div>
+        </section>
+
+        <section class="recipe-card glass-panel timing-card">
+          <div class="recipe-card-topline"><span class="recipe-section-label">03 / Run the stages</span><span class="recipe-meta" id="completedStages">0 / 0 complete</span></div>
+          <div class="stage-list" id="stageList"></div>
+          <div class="active-timer" id="activeTimer" hidden><div><span>Active stage</span><strong id="timerStageName"></strong></div><strong class="timer-readout" id="timerReadout">00:00</strong><button class="glass-btn glass-btn-secondary" id="timerButton" type="button"><i class="fa-solid fa-pause"></i> Pause</button></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/script.js?v=7"></script>
+</body>
+</html>
