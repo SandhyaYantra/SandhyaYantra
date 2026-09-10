@@ -2505,6 +2505,34 @@ button {
 .recipe-picker-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; color: var(--apple-orange); background: rgba(255,149,0,.12); }
 .recipe-note { display: flex; gap: 9px; padding-top: 22px; margin-top: 20px; border-top: 1px solid var(--glass-border-subtle); color: var(--apple-text-muted); font-size: .75rem; line-height: 1.5; }
 .recipe-note i { color: var(--apple-blue); margin-top: 3px; }
+.recipe-add-button, .recipe-inline-button { display: inline-flex; align-items: center; gap: 7px; color: var(--apple-blue); font-size: .78rem; font-weight: 700; }
+.recipe-add-button { width: 100%; justify-content: center; margin: 18px 0 24px; padding: 11px; border: 1px dashed var(--apple-blue); border-radius: 11px; }
+.recipe-add-button:hover, .recipe-inline-button:hover { color: var(--apple-blue-hover); }
+.menu-builder { padding-top: 20px; border-top: 1px solid var(--glass-border-subtle); }
+.menu-recipe-list { display: grid; gap: 8px; margin: 14px 0; }
+.menu-recipe-option { display: flex; align-items: center; gap: 8px; color: var(--apple-text-secondary); font-size: .78rem; cursor: pointer; }
+.menu-recipe-option input { accent-color: var(--apple-blue); }
+.recipe-form-label { display: block; margin: 14px 0 6px; color: var(--apple-text-secondary); font-size: .75rem; font-weight: 700; }
+.recipe-form-input { width: 100%; padding: 10px 11px; border: 1px solid var(--glass-input-border); border-radius: 10px; outline: 0; color: var(--apple-text-primary); background: var(--glass-input-bg); font: inherit; font-size: .82rem; }
+.recipe-form-input:focus { border-color: var(--apple-blue); box-shadow: 0 0 0 3px var(--apple-blue-glow); }
+.recipe-saved-note { display: block; margin-top: 10px; color: var(--apple-text-muted); font-size: .68rem; }
+.recipe-save-menu { width: 100%; justify-content: center; padding: 10px 12px; font-size: .76rem; }
+.recipe-builder-dialog { width: min(620px, calc(100% - 24px)); max-height: min(720px, calc(100% - 24px)); padding: 0; border: 0; border-radius: var(--radius-lg); color: var(--apple-text-primary); background: var(--glass-bg-base); box-shadow: var(--glass-shadow-hover); }
+.recipe-builder-dialog::backdrop { background: rgba(8, 12, 20, .56); backdrop-filter: blur(5px); }
+.recipe-builder-form { position: relative; padding: 28px; }
+.recipe-builder-form h2 { margin-top: 8px; font: 700 1.7rem/1.1 'Outfit', sans-serif; }
+.recipe-builder-form > p { margin-top: 8px; color: var(--apple-text-secondary); font-size: .86rem; }
+.dialog-close { position: absolute; top: 18px; right: 18px; width: 34px; height: 34px; border-radius: 50%; color: var(--apple-text-secondary); background: var(--glass-card-nested); }
+.recipe-form-grid { display: grid; grid-template-columns: 1fr 130px; gap: 12px; }
+.recipe-form-textarea { min-height: 70px; resize: vertical; }
+.recipe-form-heading { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
+.recipe-form-heading .recipe-form-label { margin: 0; }
+.custom-ingredient-fields { display: grid; gap: 8px; }
+.custom-ingredient-row { display: grid; grid-template-columns: minmax(0, 1fr) 90px 70px 30px; gap: 6px; align-items: center; }
+.custom-ingredient-row .recipe-form-input { min-width: 0; }
+.custom-ingredient-row .recipe-inline-button { justify-content: center; color: #ff375f; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+.dialog-actions .glass-btn { padding: 10px 14px; font-size: .78rem; }
 .recipe-main-column { display: grid; gap: 20px; min-width: 0; }
 .recipe-card-topline { padding-bottom: 18px; border-bottom: 1px solid var(--glass-border-subtle); }
 .recipe-meta { color: var(--apple-text-muted); font-size: .76rem; }
@@ -2567,5 +2595,10 @@ button {
   .servings-control { align-items: start; flex-direction: column; }
   .active-timer { flex-wrap: wrap; }
   .active-timer > div { flex-basis: calc(100% - 10px); }
+  .recipe-builder-form { padding: 22px 18px; }
+  .recipe-form-grid { grid-template-columns: 1fr; gap: 0; }
+  .custom-ingredient-row { grid-template-columns: minmax(0, 1fr) 70px 52px 28px; }
+  .dialog-actions { flex-direction: column-reverse; }
+  .dialog-actions .glass-btn { width: 100%; justify-content: center; }
 }
 

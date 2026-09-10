@@ -51,6 +51,8 @@ function initRecipeEngine() {
     }
   ];
 
+  const customRecipes = JSON.parse(localStorage.getItem('cleanrecipe_custom_recipes') || '[]');
+  recipes.push(...customRecipes);
   const savedRecipe = localStorage.getItem('cleanrecipe_active') || recipes[0].id;
   const savedServings = Number(localStorage.getItem('cleanrecipe_servings')) || recipes[0].servings;
   let activeRecipe = recipes.find(recipe => recipe.id === savedRecipe) || recipes[0];
@@ -66,7 +68,7 @@ function initRecipeEngine() {
   function renderPicker() {
     picker.innerHTML = recipes.map(recipe => `
       <button class="recipe-picker-item${recipe.id === activeRecipe.id ? ' is-active' : ''}" type="button" data-recipe-id="${recipe.id}" role="option" aria-selected="${recipe.id === activeRecipe.id}">
-        <span class="recipe-picker-icon"><i class="fa-solid fa-${recipe.id === 'fried-rice' ? 'fire' : recipe.id === 'tomato-pasta' ? 'bowl-food' : 'leaf'}"></i></span>
+        <span class="recipe-picker-icon"><i class="fa-solid fa-${recipe.id === 'fried-rice' ? 'fire' : recipe.id === 'tomato-pasta' ? 'bowl-food' : recipe.id === 'coconut-curry' ? 'leaf' : 'pen-to-square'}"></i></span>
         <span><strong>${recipe.name}</strong><small>${recipe.category} · ${recipe.time}</small></span><i class="fa-solid fa-chevron-right"></i>
       </button>`).join('');
     picker.querySelectorAll('[data-recipe-id]').forEach(button => button.addEventListener('click', () => {
@@ -112,6 +114,48 @@ function initRecipeEngine() {
     document.getElementById('recipeStatus').textContent = checkedStages.length === activeRecipe.stages.length ? 'Station complete' : 'Station ready';
     renderPicker();
     localStorage.setItem('cleanrecipe_servings', servings);
+    renderMenuRecipes();
+    document.dispatchEvent(new CustomEvent('sandhya:content-updated'));
+  }
+
+  function renderMenuRecipes() {
+    const menuList = document.getElementById('menuRecipeList');
+    if (!menuList) return;
+    const savedMenu = JSON.parse(localStorage.getItem('cleanrecipe_menu') || '{}');
+    document.getElementById('menuName').value = savedMenu.name || '';
+    menuList.innerHTML = recipes.map(recipe => `<label class="menu-recipe-option"><input type="checkbox" value="${recipe.id}"${(savedMenu.recipes || []).includes(recipe.id) ? ' checked' : ''}><span>${recipe.name}</span></label>`).join('');
+  }
+
+  function initRecipeBuilder() {
+    const dialog = document.getElementById('recipeBuilderDialog');
+    const fields = document.getElementById('customIngredientFields');
+    const addIngredient = document.getElementById('addIngredient');
+    if (!dialog || !fields) return;
+    const addRow = () => {
+      const row = document.createElement('div');
+      row.className = 'custom-ingredient-row';
+      row.innerHTML = '<input class="recipe-form-input ingredient-name" required placeholder="Ingredient name"><input class="recipe-form-input ingredient-amount" required min="0" step="0.1" type="number" placeholder="Amount"><input class="recipe-form-input ingredient-unit" required value="g" placeholder="Unit"><button class="recipe-inline-button remove-ingredient" type="button" aria-label="Remove ingredient"><i class="fa-solid fa-trash"></i></button>';
+      row.querySelector('.remove-ingredient').addEventListener('click', () => row.remove());
+      fields.appendChild(row);
+    };
+    addIngredient.addEventListener('click', addRow);
+    document.getElementById('openRecipeBuilder').addEventListener('click', () => { fields.innerHTML = ''; addRow(); addRow(); dialog.showModal(); });
+    ['closeRecipeBuilder', 'cancelRecipeBuilder'].forEach(id => document.getElementById(id).addEventListener('click', () => dialog.close()));
+    document.getElementById('recipeBuilderForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const ingredients = [...fields.querySelectorAll('.custom-ingredient-row')].map(row => [row.querySelector('.ingredient-name').value.trim(), Number(row.querySelector('.ingredient-amount').value), row.querySelector('.ingredient-unit').value.trim()]);
+      if (!ingredients.length) return;
+      const recipe = { id: `custom-${Date.now()}`, name: document.getElementById('customRecipeName').value.trim(), category: document.getElementById('customRecipeCategory').value.trim() || 'Custom', time: 'Custom', description: document.getElementById('customRecipeDescription').value.trim() || 'Custom recipe.', servings: Math.max(1, Number(document.getElementById('customRecipeServings').value) || 1), ingredients, stages: [['Prep ingredients', 10], ['Cook and adjust seasoning', 20]] };
+      recipes.push(recipe);
+      const latestCustomRecipes = JSON.parse(localStorage.getItem('cleanrecipe_custom_recipes') || '[]');
+      localStorage.setItem('cleanrecipe_custom_recipes', JSON.stringify(latestCustomRecipes.concat(recipe)));
+      activeRecipe = recipe;
+      servingsInput.value = recipe.servings;
+      localStorage.setItem('cleanrecipe_active', recipe.id);
+      dialog.close();
+      render();
+      showToast('Recipe saved.');
+    });
   }
 
   function startTimer(index) {
@@ -153,6 +197,13 @@ function initRecipeEngine() {
   document.getElementById('servingsUp').addEventListener('click', () => { servingsInput.value = Math.min(40, Number(servingsInput.value) + 1); render(); });
   servingsInput.addEventListener('change', render);
   document.getElementById('timerButton').addEventListener('click', () => { if (activeTimerId === null) return; timerRunning = !timerRunning; updateTimerReadout(); });
+  document.getElementById('saveMenu').addEventListener('click', () => {
+    const selected = [...document.querySelectorAll('#menuRecipeList input:checked')].map(input => input.value);
+    localStorage.setItem('cleanrecipe_menu', JSON.stringify({ name: document.getElementById('menuName').value.trim() || 'My menu', recipes: selected }));
+    document.getElementById('menuSavedNote').textContent = 'Menu is saved in this browser.';
+    showToast('Menu saved.');
+  });
+  initRecipeBuilder();
   render();
   servingsInput.value = savedServings;
   render();
@@ -309,6 +360,26 @@ function initLanguage() {
     , 'Stay curious': 'Tetap ingin tahu', 'Every challenge is another station to learn.': 'Setiap tantangan adalah stasiun baru untuk belajar.'
     , 'Build together': 'Membangun bersama', 'The best journeys are not taken alone.': 'Perjalanan terbaik tidak ditempuh sendirian.'
     , 'View My Work': 'Lihat Karya Saya', 'Cover photo coming soon': 'Foto sampul segera hadir'
+    , 'Back to Labs': 'Kembali ke Lab', 'CleanRecipe Engine / v1.0': 'CleanRecipe Engine / v1.0'
+    , 'Make the recipe fit the station.': 'Sesuaikan resep dengan stasiun kerja.'
+    , 'Scale portions, prep with intention, and keep every stage visible when service gets loud.': 'Atur porsi, siapkan bahan dengan terencana, dan pantau setiap tahap saat service sedang sibuk.'
+    , 'Station ready': 'Stasiun siap', 'Saved in this browser': 'Tersimpan di browser ini', 'Choose a recipe': 'Pilih resep'
+    , 'Start with a recipe, then adjust the servings for your station.': 'Mulai dari resep, lalu sesuaikan porsinya dengan kebutuhan stasiun.'
+    , 'Create your own recipe': 'Buat resep sendiri', 'My menu': 'Menu saya', 'Menu name': 'Nama menu', 'Save menu': 'Simpan menu'
+    , 'Menu is saved in this browser.': 'Menu tersimpan di browser ini.', 'Scale the batch': 'Atur skala masakan', 'Target servings': 'Target porsi', 'people': 'orang'
+    , 'Ingredient mise en place': 'Mise en place bahan', 'Run the stages': 'Jalankan tahapan', 'complete': 'selesai', 'Active stage': 'Tahap aktif', 'Pause': 'Jeda', 'Resume': 'Lanjutkan'
+    , 'Build your recipe': 'Susun resep', 'Add ingredients from your base recipe. Amounts will scale with servings.': 'Masukkan bahan dari resep dasar. Jumlahnya akan mengikuti porsi.'
+    , 'New recipe': 'Resep baru', 'Recipe name': 'Nama resep', 'Category': 'Kategori', 'Base servings': 'Porsi dasar', 'Recipe note': 'Catatan resep'
+    , 'Ingredients': 'Komposisi bahan', 'Add ingredient': 'Tambah bahan', 'Cancel': 'Batal', 'Save recipe': 'Simpan resep', 'Close': 'Tutup'
+    , 'Ingredient name': 'Nama bahan', 'Amount': 'Jumlah', 'Unit': 'Satuan', 'Remove ingredient': 'Hapus bahan'
+    , 'Example: Lunch menu': 'Contoh: Menu makan siang', 'Example: My fried rice': 'Contoh: Nasi goreng versiku', 'Example: Spicy, good for dinner service': 'Contoh: Pedas, cocok untuk service malam'
+    , 'Wok fried rice': 'Nasi goreng wok', 'Fast station': 'Stasiun cepat', 'Tomato basil pasta': 'Pasta tomat basil', 'Comfort': 'Comfort food', 'Coconut vegetable curry': 'Kari sayur santan', 'One pot': 'Satu panci'
+    , 'Set the station': 'Siapkan stasiun', 'Sear the chicken': 'Panggang ayam', 'Wok the aromatics and egg': 'Masak bumbu dan telur di wok', 'Fold, season, and finish': 'Aduk, bumbui, dan selesaikan'
+    , 'Boil the pasta water': 'Didihkan air pasta', 'Build the tomato base': 'Buat dasar saus tomat', 'Toss pasta with sauce': 'Aduk pasta dengan saus', 'Plate and finish': 'Tata dan selesaikan'
+    , 'Prep and cut vegetables': 'Siapkan dan potong sayuran', 'Bloom curry paste': 'Tumis pasta kari', 'Simmer until tender': 'Masak perlahan hingga empuk', 'Balance and garnish': 'Seimbangkan rasa dan beri hiasan'
+    , 'Prep bahan': 'Siapkan bahan', 'Masak dan koreksi rasa': 'Masak dan koreksi rasa', 'Stage complete. Nice work.': 'Tahap selesai. Kerja bagus.'
+    , 'Station complete': 'Stasiun selesai', 'Custom': 'Kustom', 'Custom recipe.': 'Resep buatan sendiri.', 'Prep ingredients': 'Siapkan bahan', 'Cook and adjust seasoning': 'Masak dan koreksi rasa'
+    , 'Menu saved.': 'Menu berhasil disimpan.', 'Recipe saved.': 'Resep berhasil disimpan.'
   };
   const savedLanguage = localStorage.getItem('sandhya_language_v2') || 'en';
   const originalTextNodes = new WeakMap();
@@ -355,6 +426,7 @@ function initLanguage() {
   }
 
   applyLanguage(savedLanguage);
+  document.addEventListener('sandhya:content-updated', () => applyLanguage(document.documentElement.lang === 'id' ? 'id' : 'en'));
   if (languageToggleBtn) {
     languageToggleBtn.addEventListener('click', () => {
       const currentLanguage = document.documentElement.lang === 'id' ? 'id' : 'en';
