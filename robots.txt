@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sandhyayantra.github.io/SandhyaYantra/sitemap.xml
