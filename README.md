@@ -1,13 +1,10 @@
 ## Hi there 👋, I'm Sandhya Yantra
 
 **From wok stations to workstations!** 🍳💻
-*(Dari stasiun kompor wajan ke meja kerja komputer!)*
 
 Welcome to my GitHub profile! I am a culinary professional transitioning into the tech industry.
-*(Selamat datang di profil GitHub gua! Gua adalah seorang profesional kuliner yang sedang beralih ke industri teknologi/IT.)*
 
 - 🔭 **I’m currently working on:** Building my programming skills and saving up for a solid dev laptop to write better code! 
-  *(Gua lagi fokus ngebangun skill programming dan nabung buat beli laptop developer yang mumpuni buat ngoding!)*
 
 - 🌱 **I’m currently learning:** HTML, CSS, and JavaScript.
 
